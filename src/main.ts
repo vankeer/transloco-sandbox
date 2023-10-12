@@ -1,7 +1,15 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import "@angular/platform-browser-dynamic";
+import { bootstrapApplication } from "@angular/platform-browser";
 
-import { AppModule } from './app/app.module';
+import { AppComponent } from "./app/app.component";
+import { appConfig } from "./app/app.config";
 
+bootstrapApplication(AppComponent, appConfig)
+  .then((ref) => {
+    // Ensure Angular destroys itself on hot reloads.
+    window["ngRef"]?.destroy();
+    window["ngRef"] = ref;
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+    // Otherwise, log the boot error
+  })
+  .catch((err) => console.error(err));
