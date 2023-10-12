@@ -21,10 +21,10 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const navbarBrand = compiled.querySelector('.navbar-brand')!;
-    expect(navbarBrand).toBeTruthy('Cannot find .navbar-brand element');
+    expect(navbarBrand).toBeTruthy();
 
     const img = navbarBrand.querySelector('img')!;
-    expect(img).toBeTruthy('Cannot find img element inside .navbar-brand');
-    expect(img.src).toContain('/assets/images/logo.svg', 'Logo source is incorrect');
+    expect(img).toBeTruthy();
+    expect(img.src).toContain('/assets/images/logo.svg');
   });
 });
