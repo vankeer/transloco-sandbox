@@ -3,7 +3,7 @@ import { compilerOptions } from './tsconfig.json';
 
 const jestConfig = {
   preset: 'jest-preset-angular',
-  // transformIgnorePatterns: ['node_modules/(?!.*\\.m?js$)'],
+  transformIgnorePatterns: ['node_modules/(?!.*\\.m?js$)'],
   // transform: {
   //   '^.+\\.(ts|js|html|svg)$': [
   //     'jest-preset-angular',
@@ -17,6 +17,7 @@ const jestConfig = {
   // },
   moduleNameMapper: {
     ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>' }),
+    flat: '<rootDir>/node_modules/flat/index.js',
   },
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   roots: ['<rootDir>'],
